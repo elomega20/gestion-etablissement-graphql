@@ -1,0 +1,105 @@
+type Enseignant {
+    id: ID!
+    nom: String!
+    prenom: String!
+    email: String!
+    cours: [Cours]
+}
+
+type Departement {
+    id: ID!
+    nom: String!
+    cours: [Cours]
+    enseignants: [Enseignant]
+}
+
+type Inscription {
+    id: ID!
+    etudiant: Etudiant!
+    cours: Cours!
+}
+
+type SalleDeClasse {
+    id: ID!
+    nom: String!
+    location: String!
+    cours: [Cours]
+}
+
+type Programme {
+    id: ID!
+    nom: String!
+    description: String!
+    etudiants: [Etudiant]
+}
+
+type Etudiant {
+    id: ID!
+    nom: String!
+    prenom: String!
+    email: String!
+    programme: Programme
+    inscriptions: [Inscription]
+}
+
+type Cours {
+    id: ID!
+    nom: String!
+    description: String!
+    departement: Departement
+    enseignant: Enseignant
+    inscriptions: [Inscription]
+}
+
+type Query {
+    enseignants: [Enseignant]
+    enseignant(id: ID!): Enseignant
+
+    departements: [Departement]
+    departement(id: ID!): Departement
+
+    inscriptions: [Inscription]
+    inscription(id: ID!): Inscription
+
+    salledeclasses: [SalleDeClasse]
+    salledeclasse(id: ID!): SalleDeClasse
+
+    programmes: [Programme]
+    programme(id: ID!): Programme
+
+    etudiants: [Etudiant]
+    etudiant(id: ID!): Etudiant
+
+    courss: [Cours]
+    cours(id: ID!): Cours
+}
+
+type Mutation {
+    ajouterUnEnseignant(nom: String!, prenom: String!, email: String!): Enseignant
+    mettreAjourUnEnseignant(id: ID!, nom: String, prenom: String, email: String): Enseignant
+    supprimerUnEnseignant(id: ID!): Boolean
+
+    ajouterUnDepartement(name: String!): Departement
+    mettreAjourUnDepartment(id: ID!, name: String): Departement
+    supprimerUnDepartment(id: ID!): Boolean
+
+    ajouterUnIncription(etudiantId: ID!, coursId: ID!): Inscription
+    supprimerUnIncription(id: ID!): Boolean
+
+    ajouterUneSalleDeClasse(nom: String!, location: String!): SalleDeClasse
+    mettreAjourUneSalleDeClasse(id: ID!, nom: String, location: String): SalleDeClasse
+    supprimerUneSalleDeClasse(id: ID!): Boolean
+
+    ajouterUnProgramme(nom: String!, description: String!): Programme
+    mettreAjourUnProgramme(id: ID!, nom: String, description: String): Programme
+    supprimerUnProgramme(id: ID!): Boolean
+
+    ajouterUnEtudiant(nom: String!, prenom: String!, email: String!, programmeId: ID): Etudiant
+    mettreAjourUnEtudiant(id: ID!, nom: String, prenom: String, email: String, programmeId: ID): Etudiant
+    supprimerUnEtudiant(id: ID!): Boolean
+
+    ajouterUnCours(nom: String!, description: String!, departementId: ID!, enseignantId: ID!): Cours
+    mettreAjourUnCours(id: ID!, nom: String, description: String, departementId: ID, enseignantId: ID): Cours
+    supprimerUnCours(id: ID!): Boolean
+}
+
