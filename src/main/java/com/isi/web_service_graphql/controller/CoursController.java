@@ -20,7 +20,7 @@ public class CoursController {
 
     private final CoursRepository coursRepository;
     private final DepartementRepository departementRepository;
-    private EnseignantRepository enseignantRepository;
+    private final EnseignantRepository enseignantRepository;
 
     // pour abtenir tout les cours
     @QueryMapping
