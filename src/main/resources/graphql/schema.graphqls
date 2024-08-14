@@ -88,8 +88,8 @@ type Mutation {
     ajouterUnIncription(etudiantId: ID!, coursId: ID!): Inscription
     supprimerUnIncription(id: ID!): Boolean
 
-    ajouterUneSalleDeClasse(nom: String!, location: String!): SalleDeClasse
-    mettreAjourUneSalleDeClasse(id: ID!, nom: String, location: String): SalleDeClasse
+    ajouterUneSalleDeClasse(nom: String!, localisation: String!): SalleDeClasse
+    mettreAjourUneSalleDeClasse(id: ID!, nom: String, localisation: String): SalleDeClasse
     supprimerUneSalleDeClasse(id: ID!): Boolean
 
     ajouterUnProgramme(nom: String!, description: String!): Programme

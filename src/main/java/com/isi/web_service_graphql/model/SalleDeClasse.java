@@ -14,7 +14,7 @@ public class SalleDeClasse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private String location;
+    private String localisation;
 
     @OneToMany(mappedBy = "salleDeClasse")
     private Set<Cours> cours;
