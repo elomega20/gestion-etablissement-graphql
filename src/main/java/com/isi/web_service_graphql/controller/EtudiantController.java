@@ -19,16 +19,19 @@ public class EtudiantController {
     private final EtudiantRepository etudiantRepository;
     private final ProgrammeRepository programmeRepository;
 
+    // pour lister les etudiants
     @QueryMapping
     public List<Etudiant> etudiants() {
         return etudiantRepository.findAll();
     }
 
+    // obtenir un etudiant via son Id
     @QueryMapping
     public Etudiant etudiant(Long id) {
         return etudiantRepository.findById(id).orElseThrow();
     }
 
+    // ajouter un etudiant
     @MutationMapping
     public Etudiant ajouterUnEtudiant(String nom, String prenom, String email, Long programmeId) {
         Etudiant etudiant = new Etudiant();
@@ -44,6 +47,7 @@ public class EtudiantController {
         return etudiantRepository.save(etudiant);
     }
 
+    // mettre a jour un etudiant
     @MutationMapping
     public Etudiant mettreAjourUnEtudiant(Long id, String nom, String prenom, String email, Long programmeId) {
         Etudiant etudiant = etudiantRepository.findById(id).orElseThrow();
@@ -66,6 +70,7 @@ public class EtudiantController {
         return etudiantRepository.save(etudiant);
     }
 
+    // pour supprimer un etudiant
     @MutationMapping
     public Boolean supprimerUnEtudiant(Long id) {
         etudiantRepository.deleteById(id);
