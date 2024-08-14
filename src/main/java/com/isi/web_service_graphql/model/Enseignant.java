@@ -19,4 +19,7 @@ public class Enseignant {
 
     @OneToMany(mappedBy = "enseignant")
     private Set<Cours> cours;
+    @ManyToOne
+    @JoinColumn(name = "departement_id")
+    private Departement departement;
 }

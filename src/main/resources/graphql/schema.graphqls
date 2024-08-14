@@ -4,6 +4,7 @@ type Enseignant {
     prenom: String!
     email: String!
     cours: [Cours]
+    departement: Departement
 }
 
 type Departement {
@@ -48,6 +49,7 @@ type Cours {
     description: String!
     departement: Departement
     enseignant: Enseignant
+    salleDeClasse : SalleDeClasse
     inscriptions: [Inscription]
 }
 

@@ -16,6 +16,6 @@ public class SalleDeClasse {
     private String nom;
     private String location;
 
-    @OneToMany(mappedBy = "salle_de_classes")
+    @OneToMany(mappedBy = "salleDeClasse")
     private Set<Cours> cours;
 }

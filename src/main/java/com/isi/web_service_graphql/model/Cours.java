@@ -17,6 +17,9 @@ public class Cours {
     private String nom;
     private String description;
 
+    @OneToMany(mappedBy = "cours")
+    private Set<Inscription> inscriptions;
+
     @ManyToOne
     @JoinColumn(name = "departement_id")
     private Departement departement;
@@ -25,6 +28,7 @@ public class Cours {
     @JoinColumn(name = "enseignant_id")
     private Enseignant enseignant;
 
-    @OneToMany(mappedBy = "cours")
-    private Set<Inscription> inscriptions;
+    @ManyToOne
+    @JoinColumn(name = "salle_de_classe_id")
+    private SalleDeClasse salleDeClasse;
 }
