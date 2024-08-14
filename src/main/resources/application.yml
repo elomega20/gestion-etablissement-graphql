@@ -1,0 +1,22 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /service-graphql
+
+spring:
+  application:
+    name: web-service-graphql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bd_service_graphql
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
