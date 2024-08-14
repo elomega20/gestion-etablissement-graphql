@@ -17,5 +17,5 @@ public class Programme {
     private String description;
 
     @OneToMany(mappedBy = "programme")
-    private Set<Etudiant> students;
+    private Set<Etudiant> etudiants;
 }
